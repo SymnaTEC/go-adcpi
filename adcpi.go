@@ -110,28 +110,28 @@ func (adcpi Interface) ReadRaw(channel byte) int {
     switch adcpi.bitRate {
     case 18:
         t = int(((h & 3) << 16) | (m << 8) | l)
-        if (t >> 17) & 1 {
+        if (t >> 17) & 1 == 1 {
             adcpi.signBit = 1
             t &= ^(1 << 17)
         }
         break;
     case 16:
         t = int((h << 8) | m)
-        if (t >> 15) & 1 {
+        if (t >> 15) & 1 == 1 {
             adcpi.signBit = 1
             t &= ^(1 << 15)
         }
         break;
     case 14:
         t = int(((h & 63) << 8) | m)
-        if (t >> 13) & 1 {
+        if (t >> 13) & 1 == 1 {
             adcpi.signBit = 1
             t &= ^(1 << 13)
         }
         break;
     case 12:
         t = int(((h & 15) << 8) | m)
-        if (t >> 11) & 1 {
+        if (t >> 11) & 1 == 1 {
             adcpi.signBit = 1
             t &= ^(1 << 11)
         }
