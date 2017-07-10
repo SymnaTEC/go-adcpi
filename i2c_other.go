@@ -15,9 +15,7 @@
 package adcpi
 
 import (
-	"fmt"
 	"os"
-	"syscall"
 )
 
 const (
@@ -43,15 +41,15 @@ func NewI2C(addr uint8, bus int) (*I2C, error) {
  the message is implementation dependant.
  */
 func (this *I2C) Write(buf []byte) (int, error) {
-	return nil
+	return 0, nil
 }
 
 func (this *I2C) WriteByte(b byte) (int, error) {
-	return nil
+	return 0, nil
 }
 
 func (this *I2C) Read(p []byte) (int, error) {
-	return nil
+	return 0, nil
 }
 
 func (this *I2C) Close() error {
