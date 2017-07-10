@@ -1,3 +1,5 @@
+// +build linux
+
 /*
  Package i2c provides low level control over the linux i2c bus.
 
@@ -216,7 +218,7 @@ func (this *I2C) WriteRegS16LE(reg byte, value int16) error {
 }
 
 func ioctl(fd, cmd, arg uintptr) error {
-	_, _, err := syscall.Syscall6(uintptr(SYS_IOCTL), fd, cmd, arg, uintptr(0), uintptr(0), uintptr(0), uintptr(0))
+	_, _, err := syscall.Syscall6(uintptr(syscall.SYS_IOCTL), fd, cmd, arg, uintptr(0), uintptr(0), uintptr(0), uintptr(0))
 	if err != 0 {
 		return err
 	}
